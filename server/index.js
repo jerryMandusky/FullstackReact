@@ -3,7 +3,7 @@ const express = require('express'); //have to use javascript common modules as n
 const app = express();   //generates a new app that represents a running express app
 
 app.get('/', (req, res)=>{
-  res.send({ hi: 'there'});
+  res.send({ bye: 'buddy'});
 });
 
 const PORT = process.env.PORT || 5000;
