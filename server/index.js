@@ -9,13 +9,20 @@ const app = express();   //generates a new app that represents a running express
 
 //client id 
 //client secret 
-passport.use(new GoogleStrategy({
-  clientID: keys.googleClientID,
-  clientSecret: keys.googleClientSecret,
-  callbackURL: '/auth/google/callback'
-  }, ()=>{
+passport.use(
+  new GoogleStrategy(
+    {
+    clientID: keys.googleClientID,
+    clientSecret: keys.googleClientSecret,
+    callbackURL: '/auth/google/callback'
+  }, accessToken =>{
     console.log(accessToken);
   })
+);
+
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['profile', 'email']
+})
 );
 
 const PORT = process.env.PORT || 5000;
