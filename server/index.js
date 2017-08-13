@@ -6,7 +6,7 @@ const passport = require("passport");
 const keys = require("./config/keys");
 require("./models/user");
 require("./services/passport");
-
+//comment
 mongoose.connect(keys.mongoURI);
 
 const app = express(); //generates a new app that represents a running express app
